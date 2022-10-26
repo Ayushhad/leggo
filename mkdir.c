@@ -10,7 +10,19 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <libgen.h>
+#include<readline/history.h>
+#include<readline/readline.h>
 
+void funcc(char* here){
+    char *aft = strdup(here);
+    char *bef = dirname(aft);
+    if(strlen(bef)>1){
+        funcc(bef);
+    }
+    mkdir(here,0700);
+    free(aft);
+}
 int main(int argc,char *argv[]){
     if(argv[0]==NULL){
         printf("No directory name provided\n");
@@ -43,7 +55,7 @@ int main(int argc,char *argv[]){
             strcat(x,"/");
             strcat(x,argv[1]);
             printf("%s\n",x);
-            remakee(x);
+            funcc(x);
         }
         else{
             int i =1;

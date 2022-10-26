@@ -37,7 +37,7 @@ int main(int argc,char *argv[]){
                 printf("%lld %s\t",x->d_ino,y);
             }
         }
-        print("\n");
+        printf("\n");
     }
     else if(!strcmp(argv[1],"-l")){
         while((x=readdir(dir))!=NULL){

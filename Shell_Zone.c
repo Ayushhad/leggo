@@ -49,8 +49,10 @@ int main(){
         char *ex = strtok(NULL," ");
         //INTERNAL COMMANDS//
         if(!strcmp(cmnd,"cd\n")){
+            printf(ex);
             if(ex == NULL || !strcmp(ex,"~"))  chdir(getenv("HOME"));
             else if(!strcmp(ex,"..")){
+                printf("dflkj");
                 chdir("..");
             }
             else printf("%s Command not Found\n",ex);

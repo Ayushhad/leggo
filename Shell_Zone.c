@@ -48,7 +48,7 @@ int main(){
         char *cmnd = strtok(inst," ");
         char *ex = strtok(NULL," ");
         //INTERNAL COMMANDS//
-        if(!strcmp(cmnd,"cd\n")){
+        if(!strcmp(cmnd,"cd")){
             printf(ex);
             if(ex == NULL || !strcmp(ex,"~"))  chdir(getenv("HOME"));
             else if(!strcmp(ex,"..")){

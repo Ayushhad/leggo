@@ -1,7 +1,7 @@
 all:
-	gcc Shell_Zone.c
-	gcc ls.c -o ls. c
-	gcc mkdir.c -o mkdir. c
-	gcc rm.c -o rm. c
-	gcc cat.c -o cat. c
-	gcc date.c -o date. c
+	gcc -o Shell_Zone Shell_Zone.c
+	gcc -o ls ls. c
+	gcc -o mkdir mkdir. c
+	gcc -o rm rm. c
+	gcc -o cat cat. c
+	gcc -o date date. c

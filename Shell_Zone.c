@@ -59,7 +59,10 @@ int main(){
         }
 
         else if(!strcmp(cmnd,"pwd")){
-            if(ex == NULL || !strcmp(ex,"-P"))  printf("%s\n",dir);
+            printf("x\n");
+            char abc[1000];
+            getcwd(abc,sizeof(abc));
+            if(ex == NULL || !strcmp(ex,"-P"))  printf("%s\n",abc);
             else if(!strcmp(ex,"-L")){
                 //NEED TO PRINT ACTUAL PATH
             }

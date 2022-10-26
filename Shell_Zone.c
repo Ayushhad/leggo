@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-void* call_ls(void *a){
+/*void* call_ls(void *a){
     system(strcat(dir,"/ls"));
     pthread_exit(NULL);
 }
@@ -30,7 +30,7 @@ void* call_date(void *a){
 void* call_cat(void *a){
     system(strcat(dir,"/cat"));
     pthread_exit(NULL);
-}
+}*/
 
 int main(){
     printf("Shell Zone\n");
@@ -48,13 +48,17 @@ int main(){
         char *ex = strtok(NULL," ");
         //INTERNAL COMMANDS//
         if(!strcmp(cmnd,"cd")){
-            printf(ex);
             if(ex == NULL || !strcmp(ex,"~"))  chdir(getenv("HOME"));
             else if(!strcmp(ex,"..")){
-                printf("dflkj");
                 chdir("..");
             }
-            else printf("%s Command not Found\n",ex);
+            else {
+                int z= chdir(ex);
+                if(z!=0){
+                    printf("Directory Doesn't exist\n");
+                }
+                //printf("%s Command not Found\n",ex);
+            }
         }
 
         else if(!strcmp(cmnd,"pwd")){
@@ -97,7 +101,7 @@ int main(){
         //EXTERNAL COMMANDS//
 
         else{
-            if(inst[strlen(inst)-3]=='&'&& inst[strlen(inst)-2] =='t'){
+            /*if(inst[strlen(inst)-3]=='&'&& inst[strlen(inst)-2] =='t'){
                 if(!strcmp(cmnd,"ls")){
                     pthread_t ptid;
                     pthread_create(&ptid, NULL, &call_ls, ex);
@@ -124,7 +128,7 @@ int main(){
                     pthread_join(ptid,NULL);
                 }
             }
-            else{
+            else{*/
                 int pid;
                 pid = fork();  
                 if(pid<0) printf("Fork Failed\n");
@@ -154,7 +158,7 @@ int main(){
                         char * ad = strcat(dir,"/cat"); 
                         execv(ad,arg);
                     }
-                }
+                //}
                 else{
                     wait(NULL);
                 }

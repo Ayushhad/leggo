@@ -6,7 +6,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <errno.h>
-char dir[500];
 
 void* call_ls(void *a){
     system(strcat(dir,"/ls"));
@@ -35,11 +34,11 @@ void* call_cat(void *a){
 
 int main(){
     printf("Shell Zone\n");
-    dir = (char *) malloc(500);
-    getcwd(dir,sizeof(dir));
-    printf("%s $ ",dir);  
+    char dir[500];
     while (1)
     {
+    getcwd(dir,sizeof(dir));
+    printf("%s $ ",dir);
         char inst[500];
 
         fgets(inst,500,stdin);

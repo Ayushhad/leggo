@@ -6,6 +6,10 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <dirent.h>
+#include <pthread.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <errno.h>
 
 int main(int argc,char *argv[]){
     if(argv[0]==NULL){

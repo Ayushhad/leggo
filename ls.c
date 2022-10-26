@@ -21,13 +21,13 @@ int main(int argc,char *argv[]){
                 printf("%s\t",y);
             }
         }
-        print("\n");
+        printf("\n");
     }
     else if(!strcmp(argv[1],"-a")){
         while((x=readdir(dir))!=NULL){
             printf("%s\t",x->d_name);
         }
-        print("\n");
+        printf("\n");
     }
     else if(!strcmp(argv[1],"-i")){
         while((x=readdir(dir))!=NULL){

@@ -6,7 +6,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <errno.h>
-char *dir;
+char dir[500];
 
 void* call_ls(void *a){
     system(strcat(dir,"/ls"));
